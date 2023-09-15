@@ -21,7 +21,7 @@ class AddDialogFragment : DialogFragment() {
         builder.setView(bind.root)
             .setPositiveButton("Salvar", DialogInterface.OnClickListener { dialog, id ->
                 addListener?.addPais(
-                    PaisModel(
+                    FilmeSerieModel(
                         bind.txtPais.text.toString(),
                         bind.txtContinente.text.toString(),
                     )

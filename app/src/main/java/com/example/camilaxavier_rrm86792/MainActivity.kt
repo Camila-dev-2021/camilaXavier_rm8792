@@ -2,14 +2,12 @@ package com.example.recyclerpaises
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.recyclerpaises.databinding.ActivityMainBinding
-import kotlin.concurrent.fixedRateTimer
 
 class MainActivity : AppCompatActivity(), IAddPais {
     lateinit var bind: ActivityMainBinding
-    val adapter = PaisesAdapter()
+    val adapter = FilmeSerieAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +19,11 @@ class MainActivity : AppCompatActivity(), IAddPais {
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         adapter.setList(mutableListOf(
-            PaisModel("Brasil", "America do Sul"),
-            PaisModel("Argentina", "America do Sul"),
-            PaisModel("China", "Asia"),
-            PaisModel("Egito", "Africa"),
-            PaisModel("Portugal", "Europa")
+            FilmeSerieModel("Brasil", "America do Sul"),
+            FilmeSerieModel("Argentina", "America do Sul"),
+            FilmeSerieModel("China", "Asia"),
+            FilmeSerieModel("Egito", "Africa"),
+            FilmeSerieModel("Portugal", "Europa")
         ))
 
         bind.addPaisBtn.setOnClickListener {
@@ -35,7 +33,7 @@ class MainActivity : AppCompatActivity(), IAddPais {
 
     }
 
-    override fun addPais(pais: PaisModel) {
+    override fun addPais(pais: FilmeSerieModel) {
         adapter.addPais(pais)
     }
 }

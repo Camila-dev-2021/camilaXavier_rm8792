@@ -26,6 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/pais_item_list" />
+        tools:listitem="@layout/filme_serie_item_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

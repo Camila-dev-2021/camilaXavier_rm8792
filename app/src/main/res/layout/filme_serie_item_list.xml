@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
 
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="2dp"
         app:cardElevation="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,12 +31,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageButton
+                android:id="@+id/recomendariaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="336dp"
+                android:background="#0000"
+                android:src="@drawable/recomendaria_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/txtPais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Brazil"
+                android:text="Serie / File Name"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +67,7 @@
                 android:id="@+id/txtContinente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="America do Sul"
+                android:text="Serie Gen"
                 android:layout_marginStart="10dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

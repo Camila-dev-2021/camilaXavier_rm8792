@@ -1,5 +1,5 @@
 package com.example.recyclerpaises
 
 interface IAddPais {
-    fun addPais(pais: PaisModel)
+    fun addPais(pais: FilmeSerieModel)
 }

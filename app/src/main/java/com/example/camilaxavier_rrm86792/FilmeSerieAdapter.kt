@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerpaises.databinding.PaisItemListBinding
 import java.util.Locale
 
-class PaisesAdapter : RecyclerView.Adapter<PaisesAdapter.PaisesHolder>() {
+class FilmeSerieAdapter : RecyclerView.Adapter<FilmeSerieAdapter.PaisesHolder>() {
 
-    private val paises: MutableList<PaisModel> = mutableListOf()
+    private val paises: MutableList<FilmeSerieModel> = mutableListOf()
 
     class PaisesHolder(val itemHolder: PaisItemListBinding) : RecyclerView.ViewHolder(itemHolder.root) {
-        fun bind(item: PaisModel) {
+        fun bind(item: FilmeSerieModel) {
             itemHolder.txtPais.text = item.pais
             itemHolder.txtContinente.text = item.continente
             itemHolder.imageView.setImageResource(
@@ -42,20 +42,20 @@ class PaisesAdapter : RecyclerView.Adapter<PaisesAdapter.PaisesHolder>() {
         }
     }
 
-    fun setList(newItems: List<PaisModel>) {
+    fun setList(newItems: List<FilmeSerieModel>) {
         paises.clear()
         paises.addAll(newItems)
         notifyDataSetChanged()
     }
 
-    fun removeListItem(removed: PaisModel) {
+    fun removeListItem(removed: FilmeSerieModel) {
         val removedIndex = paises.indexOf(removed)
         paises.remove(removed)
         notifyItemRemoved(removedIndex)
         notifyItemRangeChanged(removedIndex, paises.size);
     }
 
-    fun addPais(pais:PaisModel){
+    fun addPais(pais:FilmeSerieModel){
         paises.add(pais)
         notifyItemInserted(paises.count())
 
