@@ -1,63 +1,60 @@
-package com.example.recyclerpaises
+package com.example.camilaxavier_rrm86792
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerpaises.databinding.PaisItemListBinding
+import com.example.camilaxavier_rrm86792.databinding.FilmeSerieItemListBinding
+
 import java.util.Locale
 
-class FilmeSerieAdapter : RecyclerView.Adapter<FilmeSerieAdapter.PaisesHolder>() {
+class FilmeSerieAdapter : RecyclerView.Adapter<FilmeSerieAdapter.FilmeSerieHolder>() {
 
-    private val paises: MutableList<FilmeSerieModel> = mutableListOf()
+    private val filmeSerie: MutableList<FilmeSerieModel> = mutableListOf()
 
-    class PaisesHolder(val itemHolder: PaisItemListBinding) : RecyclerView.ViewHolder(itemHolder.root) {
+    class FilmeSerieHolder(val itemHolder: FilmeSerieItemListBinding) :
+        RecyclerView.ViewHolder(itemHolder.root) {
         fun bind(item: FilmeSerieModel) {
-            itemHolder.txtPais.text = item.pais
-            itemHolder.txtContinente.text = item.continente
+            itemHolder.txtNome.text = item.nome
+            itemHolder.txtGenero.text = item.genero
             itemHolder.imageView.setImageResource(
-            when{
-                item.continente.lowercase(Locale.ROOT).contains("america") -> R.drawable.map_america
-                item.continente.lowercase(Locale.ROOT).contains("asia") -> R.drawable.map_asia
-                item.continente.lowercase(Locale.ROOT).contains("africa") -> R.drawable.map_africa
-                item.continente.lowercase(Locale.ROOT).contains("europa") -> R.drawable.map_europa
-                else -> R.drawable.map_empty
-            }
+                if (item.recomendaria) {
+                    R.drawable.recomendaria_item
+                } else {
+                    R.drawable.baseline_thumb_down_24
+                }
             )
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaisesHolder {
-        return PaisesHolder(
-            PaisItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmeSerieHolder {
+        return FilmeSerieHolder(
+            FilmeSerieItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         )
     }
 
     override fun getItemCount(): Int =
-        paises.count()
+        filmeSerie.count()
 
-    override fun onBindViewHolder(holder: PaisesHolder, position: Int) {
-        holder.bind(paises[position])
-        holder.itemHolder.closeButton.setOnClickListener{
-            removeListItem(paises[position])
+    override fun onBindViewHolder(holder: FilmeSerieHolder, position: Int) {
+        holder.bind(filmeSerie[position])
+        holder.itemHolder.closeButton.setOnClickListener {
+            removeListItem(filmeSerie[position])
         }
     }
 
     fun setList(newItems: List<FilmeSerieModel>) {
-        paises.clear()
-        paises.addAll(newItems)
+        filmeSerie.clear()
+        filmeSerie.addAll(newItems)
         notifyDataSetChanged()
     }
 
     fun removeListItem(removed: FilmeSerieModel) {
-        val removedIndex = paises.indexOf(removed)
-        paises.remove(removed)
+        val removedIndex = filmeSerie.indexOf(removed)
+        filmeSerie.remove(removed)
         notifyItemRemoved(removedIndex)
-        notifyItemRangeChanged(removedIndex, paises.size);
+        notifyItemRangeChanged(removedIndex, filmeSerie.size);
     }
 
-    fun addPais(pais:FilmeSerieModel){
-        paises.add(pais)
-        notifyItemInserted(paises.count())
 
-    }
 }

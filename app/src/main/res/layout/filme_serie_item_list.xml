@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtPais"
+                android:id="@+id/txtNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
@@ -57,14 +57,13 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/map_america"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/txtContinente"
+                android:id="@+id/txtGenero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Serie Gen"

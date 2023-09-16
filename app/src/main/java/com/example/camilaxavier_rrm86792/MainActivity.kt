@@ -1,11 +1,12 @@
-package com.example.recyclerpaises
+package com.example.camilaxavier_rrm86792
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.recyclerpaises.databinding.ActivityMainBinding
+import com.example.camilaxavier_rrm86792.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), IAddPais {
+class MainActivity : AppCompatActivity() {
     lateinit var bind: ActivityMainBinding
     val adapter = FilmeSerieAdapter()
 
@@ -14,26 +15,16 @@ class MainActivity : AppCompatActivity(), IAddPais {
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        bind.paisesRecycler.adapter = adapter
-        bind.paisesRecycler.layoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        bind.filmeSerieRecycler.adapter = adapter
+        bind.filmeSerieRecycler.layoutManager = LinearLayoutManager(this)
 
         adapter.setList(mutableListOf(
-            FilmeSerieModel("Brasil", "America do Sul"),
-            FilmeSerieModel("Argentina", "America do Sul"),
-            FilmeSerieModel("China", "Asia"),
-            FilmeSerieModel("Egito", "Africa"),
-            FilmeSerieModel("Portugal", "Europa")
+            FilmeSerieModel("The office", "Comédia", true),
+            FilmeSerieModel("O alto da compadecida", "Comédia",  true),
+            FilmeSerieModel("As patricinhas de Beverly Hills", "Comedia Romantica", true),
+            FilmeSerieModel("Egito", "Suspense", false),
         ))
 
-        bind.addPaisBtn.setOnClickListener {
-            AddDialogFragment.newInstance(this)
-                .show(supportFragmentManager,"ADD_DIALOG")
-        }
-
     }
 
-    override fun addPais(pais: FilmeSerieModel) {
-        adapter.addPais(pais)
-    }
 }
